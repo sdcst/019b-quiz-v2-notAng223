@@ -18,3 +18,39 @@ invitations to send.
 This program will require you to incorporate everything we
 have learned so far.
 """
+IGNORE_CAPITALIZATION=True
+
+def main():
+    name_list = []
+    print("----------")
+
+    while True:
+        
+        proposed_name = input("enter first and last name with a space in between, enter nothing to finish: ")
+
+        if IGNORE_CAPITALIZATION:
+            proposed_name = proposed_name.lower()
+        
+        if proposed_name=="":
+            break
+        else:
+
+            try:
+                name_list.index(proposed_name)
+                print("that name is already in the list!")
+                
+            except:
+                
+                name_list.append(proposed_name)
+                print("added name "+proposed_name+" to the list")
+
+    name_list.sort()
+    print("----------------")
+    print("you have entered "+str(len(name_list))+" names into your list, meaning you need "+str(len(name_list))+" invitations")
+    print("the whole collection of names are: ",name_list)
+
+
+if  __name__== "__main__":
+    main()
+
+        
